@@ -9,13 +9,22 @@ avrdude с поддержкой программатора ch341a (fullspeed и 
 Очень ОЧЕНЬ ОЧЕНЬ грязный код. Я не программист, я просто попробовал, и у меня получилось!
 
 http://www.nongnu.org/avrdude/
+
 https://github.com/Alx2000y/avrdude_ch341a
+
 http://savannah.nongnu.org/patch/?9127
+
 http://forum.easyelectronics.ru/viewtopic.php?f=13&t=32626
+
 https://yourdevice.net/forum/viewtopic.php?f=26&t=1812#p3517
+
 http://www.wch-ic.com/downloads/category/30.html
+
 https://disk.yandex.ru/d/oBIy7HXc3MJgSg
+
 https://github.com/Trel725/chavrprog
+
 http://forum.easyelectronics.ru/viewtopic.php?p=503664#p503664
+
 http://docs.expressvl.ru/index.html
 
