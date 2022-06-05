@@ -562,7 +562,7 @@ void ch341a_bitbang_wch_initpgm(PROGRAMMER * pgm) {
 const char ch341a_bitbang_wch_desc[] = "Driver for \"ch341a_bitbang_wch\"-type programmers";
 
 //#define     DELAY_US        4
-#define     DELAY_US        10
+#define     DELAY_US        10  //Edit DELAY_US for tune bitbang speed.
 
 BOOL    MegaSpiOutInData_wch(
 	PROGRAMMER * pgm,
