@@ -11,14 +11,22 @@ avrdude с поддержкой программатора ch341a (fullspeed и 
 (I build with i686-w64-mingw32-gcc (GCC) 4.9.1 on raspbian-jessie)
 
 TODO:
+
 Edit DELAY_US for tune bitbang speed.
+
 Windows fullspeed SPI (fastSPI) mode available with LibUSB-alternative-driver only, 
+
 but for WCH-driver this mode didn't released (It isn't need for me). 
+
 You can simply release this mode by comparing "ch341a.c" and "ch341a_bitbang_wch.c".
 
+
 Отредактируйте DELAY_US для настройки скорости в режиме bitbang.
-Под Windows режим быстрого SPI доступен только с альтернативным LibUSB драйвером. 
+
+Под Windows режим быстрого SPI доступен только с альтернативным LibUSB драйвером.
+
 Для драйвера WCH я такой режим не делал за ненадобностью. 
+
 Вы можете сделать его по аналогии, опираясь на "ch341a.c" и "ch341a_bitbang_wch.c".
 
 CREDITS:
