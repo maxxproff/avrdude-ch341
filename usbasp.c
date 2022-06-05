@@ -43,7 +43,8 @@
 #if defined(HAVE_LIBUSB) || defined(HAVE_LIBUSB_1_0)
 
 #ifdef HAVE_LIBUSB_1_0
-//# define USE_LIBUSB_1_0
+//# define USE_LIBUSB_1_0   //this "hack" was made because LIBUSB-1.0 library on my machine was buggy. 
+			    //It force use old LIBUSB-0 library. If you have no problem, UNCOMMENT it and test use USBASP.
 #endif
 
 #if defined(USE_LIBUSB_1_0)
