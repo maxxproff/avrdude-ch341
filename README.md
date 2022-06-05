@@ -8,6 +8,8 @@ avrdude с поддержкой программатора ch341a (fullspeed и 
 
 Очень ОЧЕНЬ ОЧЕНЬ грязный код. Я не программист, я просто попробовал, и у меня получилось!
 
+(I build with i686-w64-mingw32-gcc (GCC) 4.9.1 on raspbian-jessie)
+
 http://www.nongnu.org/avrdude/
 
 https://github.com/Alx2000y/avrdude_ch341a
