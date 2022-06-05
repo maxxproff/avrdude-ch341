@@ -14,6 +14,12 @@ TODO:
 
 Edit DELAY_US for tune bitbang speed.
 
+Last stage of linking may be fail (I did it several years ago. I'm too lazy to test it right now again). 
+
+I linked with libch341dll_1_modtxt.a and some other dependencies manually.
+
+You can edit Makefile for clean linking.
+
 Windows fullspeed SPI (fastSPI) mode available with LibUSB-alternative-driver only, 
 
 but for WCH-driver this mode didn't released (It isn't need for me). 
@@ -22,6 +28,12 @@ You can simply release this mode by comparing "ch341a.c" and "ch341a_bitbang_wch
 
 
 Отредактируйте DELAY_US для настройки скорости в режиме bitbang.
+
+На последнем этапе при линковке может вылететь с ошибкой (Давно это было, мне сейчас не досуг снова проверять). 
+
+Я линковал вручную с libch341dll_1_modtxt.a и некоторыми другими либами.
+
+Вы можете поправить Makefile для корректной автоматической сборки.
 
 Под Windows режим быстрого SPI доступен только с альтернативным LibUSB драйвером.
 
