@@ -50,7 +50,9 @@
 #include "usbasp.h"
 #include "ch341a.h"
 #include "ch341a_bitbang.h"
+#if defined(WIN32NATIVE)
 #include "ch341a_bitbang_wch.h"
+#endif
 #include "usbtiny.h"
 #include "wiring.h"
 
@@ -97,7 +99,9 @@ const PROGRAMMER_TYPE programmers_types[] = {
         {"usbasp", usbasp_initpgm, usbasp_desc},
         {"ch341a", ch341a_initpgm, ch341a_desc},
         {"ch341a_bitbang", ch341a_bitbang_initpgm, ch341a_bitbang_desc},
+#if defined(WIN32NATIVE)
         {"ch341a_bitbang_wch", ch341a_bitbang_wch_initpgm, ch341a_bitbang_wch_desc},
+#endif
         {"usbtiny", usbtiny_initpgm, usbtiny_desc},
         {"wiring", wiring_initpgm, wiring_desc},
 };

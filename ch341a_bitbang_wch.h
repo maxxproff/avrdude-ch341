@@ -22,6 +22,7 @@
 #ifndef ch341a_bitbang_wch_h
 #define ch341a_bitbang_wch_h
 
+#if defined(WIN32NATIVE)
 #define CH341A_VID					0x1A86
 #define CH341A_PID					0x5512
 
@@ -63,4 +64,5 @@ void ch341a_bitbang_wch_initpgm (PROGRAMMER * pgm);
 }
 #endif
 
+#endif
 #endif /* ch341a_bitbang_wch_h */

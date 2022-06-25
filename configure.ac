@@ -17,7 +17,7 @@
 #
 
 #
-# $Id: configure.ac 1376 2016-02-16 21:28:52Z joerg_wunsch $
+# $Id$
 #
 
 # Process this file with autoconf to produce a configure script.
@@ -156,7 +156,7 @@ AH_TEMPLATE([HAVE_LIBFTDI],
             [Define if FTDI support is enabled via libftdi])
 AH_TEMPLATE([HAVE_LIBFTDI_TYPE_232H],
             [Define if libftdi supports FT232H, libftdi version >= 0.20])
-AC_CHECK_LIB([ftdi1], [ftdi_new], [have_libftdi1=yes], [], [-lusb-1.0])
+AC_CHECK_LIB([ftdi1], [ftdi_new], [have_libftdi1=yes], [], [$LIBUSB_1_0])
 AC_CHECK_LIB([ftdi], [ftdi_usb_get_strings], [have_libftdi=yes], [], [-lusb])
 if test x$have_libftdi1 = xyes; then
    LIBFTDI1="-lftdi1"
@@ -284,7 +284,7 @@ AC_ARG_ENABLE(
 		[Enable accessing parallel ports(default)]),
 	[case "${enableval}" in
 		yes) enabled_parport=yes ;;
-		no)  enabled_parport=yes ;;
+		no)  enabled_parport=no ;;
 		*)   AC_MSG_ERROR(bad value ${enableval} for enable-parport option) ;;
 		esac],
 	[enabled_parport=yes])
@@ -350,9 +350,9 @@ esac
 if test "$enabled_parport" = "yes"; then
 	AC_MSG_CHECKING([for parallel device])
 	if test "$DEFAULT_PAR_PORT" = "unknown"; then
-		AC_MSG_NOTICE([parallel port access disabled for this system])
-		enabled_parport=yes
-	else
+		AC_MSG_NOTICE([parallel port may be inaccessible for this system])
+	# 	enabled_parport=yes
+	# else
 		AC_MSG_RESULT([$DEFAULT_PAR_PORT])
 	fi
 	AC_SUBST(DEFAULT_PAR_PORT, $DEFAULT_PAR_PORT)

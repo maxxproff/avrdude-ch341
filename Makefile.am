@@ -17,7 +17,7 @@
 #
 
 #
-# $Id: Makefile.am 1357 2015-10-30 23:11:22Z joerg_wunsch $
+# $Id$
 #
 
 EXTRA_DIST   = \
@@ -66,7 +66,7 @@ avrdude_CFLAGS   = @ENABLE_WARNINGS@
 libavrdude_a_CFLAGS   = @ENABLE_WARNINGS@
 libavrdude_la_CFLAGS  = $(libavrdude_a_CFLAGS)
 
-avrdude_LDADD  = $(top_builddir)/$(noinst_LIBRARIES) @LIBUSB_1_0@ @LIBUSB@ @LIBFTDI1@ @LIBFTDI@ @LIBHID@ @LIBELF@ @LIBPTHREAD@ -lm
+avrdude_LDADD  = $(top_builddir)/$(noinst_LIBRARIES) @LIBUSB_1_0@ @LIBUSB@ @LIBFTDI1@ @LIBFTDI@ @LIBHID@ @LIBELF@ @LIBPTHREAD@ -lm  -lch341dll_1_modtxt
 
 bin_PROGRAMS = avrdude
 

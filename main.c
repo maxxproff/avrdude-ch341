@@ -17,7 +17,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* $Id: main.c 1347 2014-11-23 21:49:56Z joerg_wunsch $ */
+/* $Id$ */
 
 /*
  * Code to program an Atmel AVR device through one of the supported
@@ -1079,7 +1079,7 @@ int main(int argc, char * argv [])
 
         part = locate_part_by_signature(part_list, sig->buf, sig->size);
         if (part) {
-          avrdude_message(MSG_INFO, " \n (probably %s)", part->id);
+          avrdude_message(MSG_INFO, " \n (probably %s)", part->id); //for GUI Avrdudess chip autodetect
         }
       }
       if (ff || zz) {
