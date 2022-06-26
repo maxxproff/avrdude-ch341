@@ -135,10 +135,13 @@ bool CH341ChipSelect_bitbang_wch(PROGRAMMER * pgm, unsigned int cs, bool enable)
         return false;
     }
     cmd[0] = CH341A_CMD_UIO_STREAM;
-    if (enable)
+    if (enable) //TODO: need inversion?
         cmd[1] = CH341A_CMD_UIO_STM_OUT | 0x00;
-    else
+	//cmd[1] = CH341A_CMD_UIO_STM_OUT | ( 0x37 & ~(1<<cs));
+    else  
         cmd[1] = CH341A_CMD_UIO_STM_OUT | 0x01;
+	//cmd[1] = CH341A_CMD_UIO_STM_OUT |0x02; //TODO: for use CS1, I don't test it
+	//cmd[1] = CH341A_CMD_UIO_STM_OUT |0x03; //TODO: for use both CS0+CS1, I don't test it
     cmd[2] = CH341A_CMD_UIO_STM_END;
     return CH341USBTransfer_WCH(pgm, LIBUSB_ENDPOINT_OUT, cmd, 3);
 }
@@ -408,6 +411,7 @@ ULONG   i;
     mBuffer[ i++ ] = CH341A_CMD_UIO_STREAM;            // ÃüÁîÂë
     mBuffer[ i++ ] = CH341A_CMD_UIO_STM_OUT | 0x00;    // default status: all 0
     mBuffer[ i++ ] = CH341A_CMD_UIO_STM_DIR | 0x29;    // D0 & D3 & D5 output, other input
+    //mBuffer[ i++ ] = CH341A_CMD_UIO_STM_DIR | 0x2A;    //TODO: D1 & D3 & D5 output, other input
     //mBuffer[ i++ ] = CH341A_CMD_UIO_STM_DIR | 0x2B;    //TODO: D0 & D1 & D3 & D5 output, other input
     mBuffer[ i++ ] = CH341A_CMD_UIO_STM_US | 32;       // ÑÓ?32Î¢Ãë
     mBuffer[ i++ ] = CH341A_CMD_UIO_STM_END;           // ??ÃüÁî?üÌáÇ?½áÊø
