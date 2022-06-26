@@ -12,6 +12,14 @@ avrdude с поддержкой программатора ch341a (fullspeed и 
 
 TODO:
 
+It is hardcoded for use CS0 (D0, pin 15 of CH341A) chip select pin as reset RST pin of AVR.
+
+If your programmer is made for use CS1 (D1, pin 16 of CH341A), you can change code ("CH341A_CMD_UIO_STM_DIR | 0x2A" for example, etc...)
+
+or resolder CS0 pin instead CS1 on your programmer. (AT YOUR OWN RISK, For example, Maker39 uses coupling CS0+CS1 after 100 ohm resistors
+
+http://forum.easyelectronics.ru/viewtopic.php?p=514203&sid=a6d35d21cdeb16a76044c32e8fc11987#p514203 )
+
 Edit DELAY_US for tune bitbang speed.
 
 Last stage of linking may be fail (I did it several years ago. I'm too lazy to test it right now again). 
@@ -26,6 +34,13 @@ but for WCH-driver this mode didn't released (It isn't need for me).
 
 You can simply release this mode by comparing "ch341a.c" and "ch341a_bitbang_wch.c".
 
+Захардкожено на CS0 (D0, 15-й пин CH341A) в для подключения к RST на AVR.
+
+Если Ваш программатор распаян для использования CS1 (D1, 16-й пин CH341A), вы можете изменить код (например, «CH341A_CMD_UIO_STM_DIR | 0x2A» и т. д.)
+
+или перепаяйте пин CS0 вместо CS1 на вашем программаторе. (НА СВОЙ РИСК, например, Maker39 использует перемычку CS0+CS1 после резисторов 100 Ом
+
+http://forum.easyelectronics.ru/viewtopic.php?p=514203&sid=a6d35d21cdeb16a76044c32e8fc11987#p514203 )
 
 Отредактируйте DELAY_US для настройки скорости в режиме bitbang.
 
