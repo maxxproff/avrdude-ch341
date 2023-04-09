@@ -216,6 +216,8 @@ bool CH341ChipSelect_bitbang(PROGRAMMER * pgm, unsigned int cs, bool enable) {
     if (enable)
         //cmd[1] = CH341A_CMD_UIO_STM_OUT | ( 0x37 & ~(1<<cs));
         cmd[1] = CH341A_CMD_UIO_STM_OUT | 0x00;
+	//cmd[1] = CH341A_CMD_UIO_STM_OUT |0x02; //TODO: for use CS1, I don't test it
+	//cmd[1] = CH341A_CMD_UIO_STM_OUT |0x03; //TODO: for use both CS0+CS1, I don't test it
     else
         //cmd[1] = CH341A_CMD_UIO_STM_OUT | 0x37;
         cmd[1] = CH341A_CMD_UIO_STM_OUT | 0x01;
@@ -497,7 +499,7 @@ void ch341a_bitbang_initpgm(PROGRAMMER * pgm) {
 #endif  /* HAVE_LIBUSB */
 const char ch341a_bitbang_desc[] = "Driver for \"ch341a_bitbang\"-type programmers";
 
-#define     DELAY_US        4
+#define     DELAY_US        4  //TODO: Edit DELAY_US for tune bitbang speed. 
 
 BOOL    MegaSpiOutInData(
 	PROGRAMMER * pgm,
@@ -784,6 +786,8 @@ ULONG   i;
     mBuffer[ i++ ] = CH341A_CMD_UIO_STREAM;            // ÃüÁîÂë
     mBuffer[ i++ ] = CH341A_CMD_UIO_STM_OUT | 0x00;    // default status: all 0
     mBuffer[ i++ ] = CH341A_CMD_UIO_STM_DIR | 0x29;    // D0 & D3 & D5 output, other input
+    //mBuffer[ i++ ] = CH341A_CMD_UIO_STM_DIR | 0x2A;    //TODO: D1 & D3 & D5 output, other input
+    //mBuffer[ i++ ] = CH341A_CMD_UIO_STM_DIR | 0x2B;    //TODO: D0 & D1 & D3 & D5 output, other input
     mBuffer[ i++ ] = CH341A_CMD_UIO_STM_US | 32;       // ÑÓ?32Î¢Ãë
     mBuffer[ i++ ] = CH341A_CMD_UIO_STM_END;           // ??ÃüÁî?üÌáÇ?½áÊø
     //return( CH341WriteData( pgm, mBuffer, &i ) );     // Ö´ÐÐÊý¾Ý?ÃüÁî
